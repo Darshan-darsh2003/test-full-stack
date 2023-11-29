@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import BlogCard from "../components/Blogs/BlogCard";
-import { Grid } from "@mantine/core";
+import { Grid, Skeleton } from "@mantine/core";
 
 export type Blog = {
   description: string;
@@ -44,11 +44,23 @@ const Blogs = () => {
 
   return (
     <Grid>
-      {blogs?.map((blog) => (
-        <Grid.Col span={{ xl: 4, lg: 4, md: 6, sm: 12, xs: 12 }}>
-          <BlogCard key={blog.id} blog={blog} />
-        </Grid.Col>
-      ))}
+      <Grid.Col>
+        <h1>Our Blogs</h1>
+      </Grid.Col>
+      {blogs
+        ? blogs?.map((blog) => (
+            <Grid.Col span={{ xl: 4, lg: 4, md: 6, sm: 12, xs: 12 }}>
+              <BlogCard key={blog.id} blog={blog} />
+            </Grid.Col>
+          ))
+        : [...Array(6)].map((_, index) => (
+            <Grid.Col
+              key={index}
+              span={{ xl: 4, lg: 4, md: 6, sm: 12, xs: 12 }}
+            >
+              <Skeleton height={400} radius={8} />
+            </Grid.Col>
+          ))}
     </Grid>
   );
 };

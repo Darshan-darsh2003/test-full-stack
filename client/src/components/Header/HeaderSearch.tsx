@@ -1,7 +1,13 @@
-import { Autocomplete, Group, Burger, rem } from "@mantine/core";
+import {
+  Autocomplete,
+  Group,
+  Burger,
+  rem,
+  UnstyledButton,
+} from "@mantine/core";
 import { IconSearch } from "@tabler/icons-react";
 import classes from "./HeaderSearch.module.css";
-
+import { useNavigate } from "react-router-dom";
 const links = [
   { link: "/blogs", label: "Blogs" },
   { link: "/users", label: "Users" },
@@ -16,15 +22,19 @@ export function HeaderSearch({
   mobileOpened,
   toggleMobile,
 }: HeaderSearchProps) {
+  const navigate = useNavigate();
+
   const items = links.map((link) => (
-    <a
+    <UnstyledButton
       key={link.label}
-      href={link.link}
       className={classes.link}
-      onClick={(event) => event.preventDefault()}
+      onClick={(event) => {
+        event.preventDefault();
+        navigate(link.link);
+      }}
     >
       {link.label}
-    </a>
+    </UnstyledButton>
   ));
 
   return (

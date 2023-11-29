@@ -17,6 +17,7 @@ import {
   IconSearch,
   IconPlus,
 } from "@tabler/icons-react";
+
 import { UserButton } from "../UserButton/UserButton";
 import classes from "./NavbarSearch.module.css";
 

@@ -12,7 +12,7 @@ const BlogCard = ({ blog }: BlogCardProps) => {
       shadow="sm"
       padding="xl"
       component="a"
-      href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+      href={blog.url}
       target="_blank"
     >
       <Card.Section>
