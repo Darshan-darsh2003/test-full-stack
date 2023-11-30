@@ -13,7 +13,6 @@ app.use(bodyParser.json());
 app.use('/api/blogs', blogsRoutes);
 app.use('/api/users',usersRoutes);
 
-
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
