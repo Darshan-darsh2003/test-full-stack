@@ -1,11 +1,4 @@
-import {
-  Autocomplete,
-  Group,
-  Burger,
-  rem,
-  UnstyledButton,
-} from "@mantine/core";
-import { IconSearch } from "@tabler/icons-react";
+import { Group, Burger, UnstyledButton } from "@mantine/core";
 import classes from "./HeaderSearch.module.css";
 import { useNavigate } from "react-router-dom";
 const links = [
@@ -53,30 +46,8 @@ export function HeaderSearch({
           />
         </Group>
 
-        <Group>
-          <Group ml={50} gap={10} className={classes.links} visibleFrom="sm">
-            {items}
-          </Group>
-          <Autocomplete
-            className={classes.search}
-            placeholder="Search"
-            leftSection={
-              <IconSearch
-                style={{ width: rem(16), height: rem(16) }}
-                stroke={1.5}
-              />
-            }
-            data={[
-              "React",
-              "Angular",
-              "Vue",
-              "Next.js",
-              "Riot.js",
-              "Svelte",
-              "Blitz.js",
-            ]}
-            visibleFrom="xs"
-          />
+        <Group ml={50} gap={10} className={classes.links} visibleFrom="sm">
+          {items}
         </Group>
       </div>
     </header>

@@ -49,7 +49,10 @@ const Blogs = () => {
       </Grid.Col>
       {blogs
         ? blogs?.map((blog) => (
-            <Grid.Col span={{ xl: 4, lg: 4, md: 6, sm: 12, xs: 12 }}>
+            <Grid.Col
+              key={blog.id}
+              span={{ xl: 4, lg: 4, md: 6, sm: 12, xs: 12 }}
+            >
               <BlogCard key={blog.id} blog={blog} />
             </Grid.Col>
           ))
